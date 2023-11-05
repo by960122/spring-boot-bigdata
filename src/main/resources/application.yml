@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    hive:
+      url: jdbc:hive2://192.168.1.201:10000/default
+      type: com.alibaba.druid.pool.DruidDataSource
+      username: root
+      password:
+      driver-class-name: org.apache.hive.jdbc.HiveDriver
+    common:
+      config:
+        initialSize: 1
+        minIdle: 1
+        maxIdle: 5
+        maxActive: 50
+        maxWait: 10000
+        timeBetweenEvictionRunsMillis: 10000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select * from hive.test_hive
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        maxOpenPreparedStatements: 100
+        filters: stat
+
+hadoop:
+  username: BYDylan
+hdfs:
+  path: hdfs://localhost:8020
+hbase:
+  zookeeper:
+    quorum: 127.0.0.1
+    port: 2181
